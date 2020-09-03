@@ -64,3 +64,12 @@ func TestGreetAmyBRIANBobMAX(t *testing.T) {
 		t.Errorf("Got: '%s', want '%s'", actualGreeting, expectedGreeting)
 	}
 }
+
+func TestGreetAmyBRIAN(t *testing.T) {
+	actualGreeting := Greet("Amy", "BRIAN")
+	expectedGreeting := "Hello, Amy. AND HELLO BRIAN!"
+
+	if actualGreeting != expectedGreeting {
+		t.Errorf("Got: '%s', want '%s'", actualGreeting, expectedGreeting)
+	}
+}

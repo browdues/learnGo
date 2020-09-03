@@ -11,7 +11,9 @@ func Greet(names ...string) string {
 	firstUpperIndex, names := sortNames(names)
 	name := ""
 	for nameIndex, n := range names {
-		if nameIndex == 0 {
+		if nameIndex == 0 && len(names) > firstUpperIndex && firstUpperIndex == 1 {
+			name += n + "."
+		} else if nameIndex == 0 {
 			name += n
 		} else if nameIndex == firstUpperIndex-1 && len(names) > firstUpperIndex {
 			name += " and " + n + "."
