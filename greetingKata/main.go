@@ -10,8 +10,7 @@ import (
 func Greet(names ...string) string {
 	firstUpperIndex, names := sortNames(names)
 	name := ""
-	nameIndex := 0
-	for _, n := range names {
+	for nameIndex, n := range names {
 		if nameIndex == 0 {
 			name += n
 		} else if nameIndex == firstUpperIndex-1 && len(names) > firstUpperIndex {
@@ -25,7 +24,6 @@ func Greet(names ...string) string {
 		} else {
 			name += ", " + n + ","
 		}
-		nameIndex++
 	}
 
 	switch {
