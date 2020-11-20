@@ -6,9 +6,9 @@ import (
 
 // Movie returns the first n where ceil(systemB) < ceil(systemA)
 func Movie(card, ticket int, perc float64) int {
-	systemA := float64(ticket)
-	systemB := float64(card) + perc*float64(ticket)
-	n := 1
+	var systemA float64
+	systemB := float64(card)
+	n := 0
 
 	for systemA <= math.Ceil(systemB) {
 		n++
