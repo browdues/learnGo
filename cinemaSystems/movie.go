@@ -4,7 +4,7 @@ import (
 	"math"
 )
 
-// Movie returns the first n where ceil(systemB) < ceil(systemA)
+// Movie returns the first n where ceil(systemB) < systemA
 func Movie(card, ticket int, perc float64) int {
 	var systemA float64
 	systemB := float64(card)
