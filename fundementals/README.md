@@ -1,3 +1,6 @@
+# Fundamentals
+
+Complete the online book https://quii.gitbook.io/learn-go-with-tests/go-fundamentals
 # WIL (What I Learned)
 
 Benchmarks can be easily written
