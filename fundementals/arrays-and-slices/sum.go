@@ -22,7 +22,7 @@ func All(numbersToSum ...[]int) []int {
 }
 
 // AllTails takes n slices and returns the n tail sums
-// a tail sum is the sum of all numbers in a slice except the first (its head)
+// a tailSum is the sum of all numbers in a slice except the first (its head)
 func AllTails(numbersToSum ...[]int) []int {
 	var sums []int
 
