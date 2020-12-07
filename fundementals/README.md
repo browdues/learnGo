@@ -20,6 +20,11 @@ Examples
 Arrays
 - size encoded in its type. I.E. can't pass [4]int into a func that expects [5]int
 
+Slices are variable size. Use `append` to push
+
+Interfaces can be satisfied minimally by structs with many more parameters.
+
+
 # What I don't get
 
 `t.Helper()` designates the calling function a test helper. When pringting file and line info, that function will be skipped. Helper may be called simultaneously from multiple goroutines.
