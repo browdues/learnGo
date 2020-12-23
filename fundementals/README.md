@@ -47,6 +47,10 @@ Can let you implement interfaces
 
 Reference Types - An interesting property of maps is that you can modify them without passing them as a pointer. This is because `map` is a reference ype, meaing it holds a reference to the undrelying data structure. The underlying structure is a `hash table` Maps being a reference is good b/c no matter how big they get there will only be one copy.
 
+## Errors
+- can be made into constants and passed around (see `maps`)
+- can be generated with a wrapper that implements the error interface
+
 # What I don't get
 
 `t.Helper()` designates the calling function a test helper. When pringting file and line info, that function will be skipped. Helper may be called simultaneously from multiple goroutines.
