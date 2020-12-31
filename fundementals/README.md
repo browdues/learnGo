@@ -53,6 +53,27 @@ Reference Types - An interesting property of maps is that you can modify them wi
 
 **Use Mocks (and tests in general) to test *behavior*, rather than implementation! -> Think in terms of how it behaves!**
 
+## Concurrency
+In a nutshell:
+- `Go routines` are the basic unit of concurrnecy
+- Anon functions can be used to kick off concurrent processes
+  - Because the only way to start a goroutine is to put `go` in front of a function call, we often use anonymous functions when we want to start a goroutine.
+      - Anonymous functions can be executed when they're declared!
+      ```go
+      go func () {
+          // do stuff
+      }()
+      ```
+      - Anon functions maintain access to the lexical scope they are defined in - all the vars that are avaailable at the point when you declare the anon func are also available in the body of the function.
+- Channels help organize and control the communication between different processes allowing us to avoid a race condition bug
+- Check for race conditions with `go test --race` **might not always work**
+
+Final Thoughts:
+ Make it work (tests pass), make it right (refactor), make it fast (optimize)
+
+*Premature Optimization is the root of all evil!*
+
+In effect, one cannot make it fast, without first making it work and making it right.
 # What I don't get
 
 `t.Helper()` designates the calling function a test helper. When pringting file and line info, that function will be skipped. Helper may be called simultaneously from multiple goroutines.
