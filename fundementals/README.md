@@ -1,6 +1,6 @@
 # Fundamentals
 
-Complete the online book https://quii.gitbook.io/learn-go-with-tests/go-fundamentals
+Complete the online book https://quii.gitbook.io/learn-go-with-tests/
 # WIL (What I Learned)
 
 Benchmarks can be easily written
@@ -51,8 +51,12 @@ Reference Types - An interesting property of maps is that you can modify them wi
 - can be made into constants and passed around (see `maps`)
 - can be generated with a wrapper that implements the error interface
 
+**Use Mocks (and tests in general) to test *behavior*, rather than implementation! -> Think in terms of how it behaves!**
+
 # What I don't get
 
 `t.Helper()` designates the calling function a test helper. When pringting file and line info, that function will be skipped. Helper may be called simultaneously from multiple goroutines.
 
 `t.Fatal()` is used to end a program so we don't panic if subsequent steps continue. Is there something like this in the standard go lib?
+
+In the associated [article](https://blog.cleancoder.com/uncle-bob/2014/05/14/TheLittleMocker.html), I don't get what Uncle Bob means by "reflection" in the following context: `Ironically, some mocking systems depend strongly on reflection, and are therefore very slow.`
