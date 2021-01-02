@@ -68,12 +68,27 @@ In a nutshell:
 - Channels help organize and control the communication between different processes allowing us to avoid a race condition bug
 - Check for race conditions with `go test --race` **might not always work**
 
-Final Thoughts:
- Make it work (tests pass), make it right (refactor), make it fast (optimize)
+Sage Thoughts:
+- Make it work (tests pass), make it right (refactor), make it fast (optimize)
+- *Premature Optimization is the root of all evil!*
+- In effect, one cannot make it fast, without first making it work and making it right.
 
-*Premature Optimization is the root of all evil!*
+Clarity on `chan struct{}` semantics
+- In the event we don't care *what* is sent on a channel, just *that* something is sent, we opt to utilize these symantics
+- This is advantageous because this won't allocate anything. AKA this is the smallest data type available form memory.
 
-In effect, one cannot make it fast, without first making it work and making it right.
+**ALWAYS MAKE CHAN**
+- When you declare something with var, it initializes it to its "zero" value. For a string "", int 0, etc...
+- For channels, the "zero" value is `nil`, and if you try to send to it with `<-` it will block forever because you cannot send to `nil` channels
+
+Select
+- Recall that one can wait for vals to be sent to a chan with `myVar := <-ch` (reciever expression). This is a *blocking* call, as you're waiting for a value.
+- Select allows youto wait on *multiple* channels. The first one to send a value "wins and the code undernewath the `case` is executed.
+- Sometimes you'll want to include `time.After` in one of your cases to prevent your system from blocking forever.
+
+`httptest`
+- This is a great way to create test servers so you can have reliable, controllable tests.
+- Uses the same interfaces as the "real" `net/http` servers which is consistent and less for you to learn.
 # What I don't get
 
 `t.Helper()` designates the calling function a test helper. When pringting file and line info, that function will be skipped. Helper may be called simultaneously from multiple goroutines.
