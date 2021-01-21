@@ -72,7 +72,7 @@ func ValidatePassword(passwords []Password) int {
 // ValidatePasswordPart2 returns the number of valid passwords that are
 // passed to the function given updated rules
 func ValidatePasswordPart2(passwords []Password) int {
-	validPasswords := 0
+	nValidPasswords := 0
 	for _, pass := range passwords {
 		letter1 := string(pass.password[pass.min-1])
 		letter2 := string(pass.password[pass.max-1])
@@ -81,8 +81,8 @@ func ValidatePasswordPart2(passwords []Password) int {
 		bothAreDifferent := letter1 != letter2
 
 		if eitherMatch && bothAreDifferent {
-			validPasswords++
+			nValidPasswords++
 		}
 	}
-	return validPasswords
+	return nValidPasswords
 }

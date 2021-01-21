@@ -10,7 +10,7 @@ func TestReadFile(t *testing.T) {
 	lines, err := ReadLines("./input.txt")
 
 	assert.NoError(t, err)
-	assert.Equal(t, 1001, len(lines))
+	assert.Equal(t, 1000, len(lines))
 }
 
 var lines, _ = ReadLines("./input.txt")
