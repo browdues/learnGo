@@ -29,7 +29,6 @@ func WordleHelper(fpath, grays, yellows, greens string) map[int]string {
 			continue
 		}
 	}
-
 	return corpus
 }
 
@@ -71,8 +70,8 @@ func checkGrays(grays string, corpus map[int]string, wordIndex int) (deleted boo
 }
 
 func checkYellows(yellows string, corpus map[int]string, wordIndex int) (deleted bool) {
-	for _, greenLet := range yellows {
-		if !strings.ContainsRune(corpus[wordIndex], greenLet) {
+	for _, yellowLet := range yellows {
+		if !strings.ContainsRune(corpus[wordIndex], yellowLet) {
 			delete(corpus, wordIndex)
 			return true
 		}

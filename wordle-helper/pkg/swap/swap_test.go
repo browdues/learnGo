@@ -1,10 +1,10 @@
-package brute_test
+package swap_test
 
 import (
 	"path"
 	"testing"
 
-	. "wordle-helper/pkg/brute"
+	. "wordle-helper/pkg/swap"
 
 	"github.com/stretchr/testify/assert"
 )
@@ -17,10 +17,10 @@ func TestWordleHelper(t *testing.T) {
 		yellows := "nk"
 		greens := "o3"
 
-		want := map[int]string{72: "known", 3350: "knoll"}
+		want := []string{"known", "knoll"}
 		got := WordleHelper(fpath, grays, yellows, greens)
 
-		assert.EqualValues(t, want, got)
+		assert.ElementsMatch(t, want, got)
 	})
 
 	t.Run("SecondExample", func(t *testing.T) {
@@ -28,10 +28,10 @@ func TestWordleHelper(t *testing.T) {
 		yellows := "d"
 		greens := "r2e5"
 
-		want := map[int]string{312: "drove", 2496: "erode", 2785: "drape", 3309: "drake"}
+		want := []string{"drove", "erode", "drape", "drake"}
 		got := WordleHelper(fpath, grays, yellows, greens)
 
-		assert.EqualValues(t, want, got)
+		assert.ElementsMatch(t, want, got)
 	})
 
 	t.Run("UlcerExample", func(t *testing.T) {
@@ -39,10 +39,10 @@ func TestWordleHelper(t *testing.T) {
 		yellows := "u"
 		greens := "e4r5"
 
-		want := map[int]string{411: "ruler", 775: "queer", 2137: "ulcer", 3161: "huger", 5201: "lurer", 5296: "fumer", 5456: "urger", 5642: "gluer", 5731: "curer"}
+		want := []string{"ruler", "queer", "ulcer", "huger", "lurer", "fumer", "urger", "gluer", "curer"}
 		got := WordleHelper(fpath, grays, yellows, greens)
 
-		assert.EqualValues(t, want, got)
+		assert.ElementsMatch(t, want, got)
 	})
 
 	t.Run("UltraExample", func(t *testing.T) {
@@ -50,10 +50,10 @@ func TestWordleHelper(t *testing.T) {
 		yellows := ""
 		greens := "t1r2a3"
 
-		want := map[int]string{2028: "trawl"}
+		want := []string{"trawl"}
 		got := WordleHelper(fpath, grays, yellows, greens)
 
-		assert.EqualValues(t, want, got)
+		assert.ElementsMatch(t, want, got)
 	})
 
 	t.Run("RobinExample", func(t *testing.T) {
@@ -61,9 +61,9 @@ func TestWordleHelper(t *testing.T) {
 		yellows := "in"
 		greens := "r1"
 
-		want := map[int]string{3341: "rhino", 5473: "ruing", 1091: "robin", 3551: "runic"}
+		want := []string{"rhino", "ruing", "robin", "runic"}
 		got := WordleHelper(fpath, grays, yellows, greens)
 
-		assert.EqualValues(t, want, got)
+		assert.ElementsMatch(t, want, got)
 	})
 }
