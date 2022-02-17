@@ -3,15 +3,20 @@ package main
 import (
 	"fmt"
 	"os"
-	"wordle-helper/pkg/swap"
+	"wordle-helper/pkg/optimized"
+	"wordle-helper/pkg/remove"
 )
 
 func main() {
-	possibilities := swap.WordleHelper(
-		"pkg/sgb-words.txt",
+	corpus := remove.ParseCorpusMap(
+		optimized.ReduceCorpusWithGrays(protectArg(1),
+			optimized.ParseCorpusAlphabetBins("pkg/sgb-words.txt")),
+	)
+	possibilities := remove.WordleHelper(
 		protectArg(1),
 		protectArg(2),
 		protectArg(3),
+		corpus,
 	)
 
 	for _, v := range possibilities {

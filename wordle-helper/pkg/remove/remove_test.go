@@ -1,10 +1,10 @@
-package brute_test
+package remove_test
 
 import (
 	"path"
 	"testing"
 
-	. "wordle-helper/pkg/brute"
+	. "wordle-helper/pkg/remove"
 
 	"github.com/stretchr/testify/assert"
 )
@@ -18,7 +18,7 @@ func TestWordleHelper(t *testing.T) {
 		greens := "o3"
 
 		want := map[int]string{72: "known", 3350: "knoll"}
-		got := WordleHelper(fpath, grays, yellows, greens)
+		got := WordleHelper(grays, yellows, greens, ParseCorpusMap(ParseCorpusSlice(fpath)))
 
 		assert.EqualValues(t, want, got)
 	})
@@ -29,7 +29,7 @@ func TestWordleHelper(t *testing.T) {
 		greens := "r2e5"
 
 		want := map[int]string{312: "drove", 2496: "erode", 2785: "drape", 3309: "drake"}
-		got := WordleHelper(fpath, grays, yellows, greens)
+		got := WordleHelper(grays, yellows, greens, ParseCorpusMap(ParseCorpusSlice(fpath)))
 
 		assert.EqualValues(t, want, got)
 	})
@@ -40,7 +40,7 @@ func TestWordleHelper(t *testing.T) {
 		greens := "e4r5"
 
 		want := map[int]string{411: "ruler", 775: "queer", 2137: "ulcer", 3161: "huger", 5201: "lurer", 5296: "fumer", 5456: "urger", 5642: "gluer", 5731: "curer"}
-		got := WordleHelper(fpath, grays, yellows, greens)
+		got := WordleHelper(grays, yellows, greens, ParseCorpusMap(ParseCorpusSlice(fpath)))
 
 		assert.EqualValues(t, want, got)
 	})
@@ -51,7 +51,7 @@ func TestWordleHelper(t *testing.T) {
 		greens := "t1r2a3"
 
 		want := map[int]string{2028: "trawl"}
-		got := WordleHelper(fpath, grays, yellows, greens)
+		got := WordleHelper(grays, yellows, greens, ParseCorpusMap(ParseCorpusSlice(fpath)))
 
 		assert.EqualValues(t, want, got)
 	})
@@ -62,7 +62,7 @@ func TestWordleHelper(t *testing.T) {
 		greens := "r1"
 
 		want := map[int]string{3341: "rhino", 5473: "ruing", 1091: "robin", 3551: "runic"}
-		got := WordleHelper(fpath, grays, yellows, greens)
+		got := WordleHelper(grays, yellows, greens, ParseCorpusMap(ParseCorpusSlice(fpath)))
 
 		assert.EqualValues(t, want, got)
 	})

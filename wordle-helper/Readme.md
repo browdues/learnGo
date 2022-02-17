@@ -13,7 +13,7 @@ go build .
 # execute program
 # ./wordle-helper <grays> <yellows> <greens>
 ./wordle-helper adieupsychtr nk o3
+
+# run benchmarks
+go test -bench=. ./pkg/optimized 
 ```
-### Outputs:
-known
-knoll

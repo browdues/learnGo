@@ -4,6 +4,7 @@ import (
 	"path"
 	"testing"
 
+	"wordle-helper/pkg/remove"
 	. "wordle-helper/pkg/swap"
 
 	"github.com/stretchr/testify/assert"
@@ -18,7 +19,7 @@ func TestWordleHelper(t *testing.T) {
 		greens := "o3"
 
 		want := []string{"known", "knoll"}
-		got := WordleHelper(fpath, grays, yellows, greens)
+		got := WordleHelper(grays, yellows, greens, remove.ParseCorpusSlice(fpath))
 
 		assert.ElementsMatch(t, want, got)
 	})
@@ -29,7 +30,7 @@ func TestWordleHelper(t *testing.T) {
 		greens := "r2e5"
 
 		want := []string{"drove", "erode", "drape", "drake"}
-		got := WordleHelper(fpath, grays, yellows, greens)
+		got := WordleHelper(grays, yellows, greens, remove.ParseCorpusSlice(fpath))
 
 		assert.ElementsMatch(t, want, got)
 	})
@@ -40,7 +41,7 @@ func TestWordleHelper(t *testing.T) {
 		greens := "e4r5"
 
 		want := []string{"ruler", "queer", "ulcer", "huger", "lurer", "fumer", "urger", "gluer", "curer"}
-		got := WordleHelper(fpath, grays, yellows, greens)
+		got := WordleHelper(grays, yellows, greens, remove.ParseCorpusSlice(fpath))
 
 		assert.ElementsMatch(t, want, got)
 	})
@@ -51,7 +52,7 @@ func TestWordleHelper(t *testing.T) {
 		greens := "t1r2a3"
 
 		want := []string{"trawl"}
-		got := WordleHelper(fpath, grays, yellows, greens)
+		got := WordleHelper(grays, yellows, greens, remove.ParseCorpusSlice(fpath))
 
 		assert.ElementsMatch(t, want, got)
 	})
@@ -62,7 +63,7 @@ func TestWordleHelper(t *testing.T) {
 		greens := "r1"
 
 		want := []string{"rhino", "ruing", "robin", "runic"}
-		got := WordleHelper(fpath, grays, yellows, greens)
+		got := WordleHelper(grays, yellows, greens, remove.ParseCorpusSlice(fpath))
 
 		assert.ElementsMatch(t, want, got)
 	})
